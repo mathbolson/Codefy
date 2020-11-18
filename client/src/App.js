@@ -1,88 +1,41 @@
-import React, { useState } from "react";
-import Jumbotron from "./components/Jumbotron";
-import Nav from "./components/Nav";
-import Input from "./components/Input";
-import Button from "./components/Button";
-import API from "./utils/API";
-import { RecipeList, RecipeListItem } from "./components/RecipeList";
-import { Container, Row, Col } from "./components/Grid";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-function App() {
-
-  const [recipes, setRecipes] = useState([]);
-  const [recipeSearch, setRecipeSearch] = useState("");
-
-  const handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { value } = event.target;
-    setRecipeSearch(value);
+class App extends Component {
+state = {
+    data: null
   };
 
-  const handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-    event.preventDefault();
-    API.getRecipes(recipeSearch)
-      .then(res => setRecipes(res.data))
+  componentDidMount() {
+      // Call our fetch function below once the component mounts
+    this.callBackendAPI()
+      .then(res => this.setState({ data: res.express }))
       .catch(err => console.log(err));
+  }
+    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
+  callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
   };
 
-  return (
-    <div>
-      <Nav />
-      <Jumbotron />
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <form>
-              <Container>
-                <Row>
-                  <Col size="xs-9 sm-10">
-                    <Input
-                      name="RecipeSearch"
-                      value={recipeSearch}
-                      onChange={handleInputChange}
-                      placeholder="Search For a Recipe"
-                    />
-                  </Col>
-                  <Col size="xs-3 sm-2">
-                    <Button
-                      onClick={handleFormSubmit}
-                      type="success"
-                      className="input-lg"
-                    >
-                        Search
-                    </Button>
-                  </Col>
-                </Row>
-              </Container>
-            </form>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="xs-12">
-            {!recipes.length ? (
-              <h1 className="text-center">No Recipes to Display</h1>
-            ) : (
-              <RecipeList>
-                {recipes.map(recipe => {
-                  return (
-                    <RecipeListItem
-                      key={recipe.title}
-                      title={recipe.title}
-                      href={recipe.href}
-                      ingredients={recipe.ingredients}
-                      thumbnail={recipe.thumbnail}
-                    />
-                  );
-                })}
-              </RecipeList>
-            )}
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        // Render the newly fetched data inside of this.state.data 
+        <p className="App-intro">{this.state.data}</p>
+      </div>
+    );
+  }
 }
 
 export default App;
