@@ -1,34 +1,62 @@
-const express = require("express");
-const path = require("path");
 const mongoose = require("mongoose");
-
-const PORT = process.env.PORT || 3001;
+const express = require("express");
+const cors = require("cors");
+const passport = require("passport");
+const passportLocal = require("passport-local").Strategy;
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const bodyParser = require("body-parser");
 const app = express();
-const apiRoutes = require("./routes/apiRoutes");
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
+
+const PORT = process.env.PORT || 4000;
+//----------------------------------------- END OF IMPORTS---------------------------------------------------
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactrecipes",
-  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+  "mongodb+srv://mathbolson:odeiocmb@cluster0.gyhca.mongodb.net/codefy?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  () => {
+    console.log("Mongoose is Connected to Codefy");
+  }
 );
 
-// Use apiRoutes
-app.use("/api", apiRoutes);
 
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: "http://localhost:3000", 
+    credentials: true,
+  })
+);
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(cookieParser("secretcode"));
+app.use(passport.initialize());
+app.use(passport.session());
+require("./Config/passportConfig")(passport);
+
+//----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
+
+// ApiRoutes
+const apiRoute = require("./routes/apiRoute");
+const indexRoute = require("./routes/indexRoute");
+
+app.use('/', apiRoute);
+app.use('/Profile', indexRoute);
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
