@@ -16,7 +16,7 @@ class Profile extends Component {
         //     });
         //   });
 
-        $( document ).ready(function() {
+        $(document).ready(function() {
             $.getJSON('http://localhost:4000/questionsAndAnswers', function(res) {
                 //console.log(res);
                 for (let i = 0; i < res.length; i++) {
