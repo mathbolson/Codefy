@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import "../App.css";
 import Axios from "axios";
 import "../Styles/Pure.css";
-import Footer from  "../Components/Footer";
+import Footer from "../Components/Footer";
 
 
 const Home = () => {
@@ -40,21 +40,31 @@ const Home = () => {
     
   return (
 <div>
-     
+
     <div className="splash-container">
     <div className="splash">
-        <h1 className="splash-head">CODEFY</h1>
+        <p className="splash-head">CODEFY</p>
           <p className="splash-subhead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+             <strong>"Hello world!"</strong>
           </p>
-        <div>
-          <input placeholder="username" onChange={(e) => setLoginUsername(e.target.value)} />
-          <input placeholder="password" type="password" onChange={(e) => setLoginPassword(e.target.value)} />
-          <button onClick= {login}>Log in</button>
+
+      <form className="pure-form pure-form-aligned">
+        <fieldset>
+          <div className="pure-control-group">
+              <input type="text" id="aligned-name" placeholder="Username" onChange={(e) => setLoginUsername(e.target.value)} />
+          </div>
+          <div className="pure-control-group">
+              <input type="password" id="aligned-password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)} />
+          </div>
+        </fieldset>
+      </form>
+
+{/* VERIFICAR PQ O BTN LOG IN NAO FUNCIONA QDO COLOCADO DENTRO DO FORM */}
+          <button className="pure-button pure-button-primary" onClick= {login}>Log in</button>
           {data ? <h1>Welcome {data.username}</h1> : null}
-      </div>
-      <br></br>
-        <p>
+
+
+       <p>
             <a href="http://purecss.io" className="pure-button pure-button-primary">Get Started</a>
         </p>
     </div>
@@ -102,6 +112,7 @@ const Home = () => {
                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                   consequat. Duis aute irure dolor.
               </p>
+              <br></br>
           </div>
           
       </div>
