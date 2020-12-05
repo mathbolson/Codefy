@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+//import { render } from "react-dom";
 import $ from "jquery";
 
 class Profile extends Component {
@@ -41,6 +41,7 @@ class Profile extends Component {
            <div>
            <br></br>
            <h1> Submit Questions  </h1>
+           <div>WELCOME {this.props.location.state.username} </div>
            <h3>This is a form so you can add your question and answer!</h3>
           <form id="formAddUser" name="adduser" method="post" action="http://localhost:4000/addQuestion">
             <input id="inputUserEmail" type="text" placeholder="Insert Coding Question" name="question" />

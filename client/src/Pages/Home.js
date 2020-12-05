@@ -1,4 +1,5 @@
 import React, { useState} from "react";
+import {Redirect} from "react-router-dom";
 import "../App.css";
 import Axios from "axios";
 import "../Styles/Pure.css";
@@ -6,11 +7,18 @@ import Footer from "../Components/Footer";
 
 
 const Home = () => {
+  const [redirect, setRedirect] = useState(null);
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
   
   const login = () => {
+    console.log("Hello");
+    // Axios.post("/api/login", {params:{username: loginUsername,
+    //   password: loginPassword}}).then((res) => {
+    //     console.log(res)
+        //getUser() 
+      //});
     Axios({
       method: "POST",
       data: {
@@ -18,28 +26,42 @@ const Home = () => {
         password: loginPassword,
       },
       withCredentials: true,
-      url: "http://localhost:4000/login",
+      url: "/api/login",
     }).then((res) => {
-      console.log(res)
-      getUser() 
+      console.log(res.status)
+      if(res.status === 200) 
+      { console.log(res.data)
+      setData(res.data)
+       setRedirect(true)
+      } 
+    }).catch(err => {
+      //console.log(err.response.status)
+      if (err.response.status === 403) {
+      setRedirect(false)
+      }
     });
   };
   
   
-  const getUser = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "http://localhost:4000/user",
-    }).then((res) => {
-      setData(res.data);
-      console.log(res.data);
-    });
-  };
+  // const getUser = () => {
+  //   Axios({
+  //     method: "GET",
+  //     withCredentials: true,
+  //     url: "/user",
+  //   }).then((res) => {
+  //     setData(res.data);
+  //     console.log(res.data);
+  //   });
+  // };
 
-    
-  return (
-<div>
+ if(redirect) {
+   return <Redirect  to={{pathname:"/profile", state:{username : data.username}}} />
+ } else {
+
+
+   
+   return (
+     <div>
 
     <div className="splash-container">
     <div className="splash">
@@ -61,12 +83,19 @@ const Home = () => {
 
 {/* VERIFICAR PQ O BTN LOG IN NAO FUNCIONA QDO COLOCADO DENTRO DO FORM */}
           <button className="pure-button pure-button-primary" onClick= {login}>Log in</button>
-          {data ? <h1>Welcome {data.username}</h1> : null}
+          
+ 
+{ redirect === false ? <div className="errorAlert"> User not found!</div> : null }
 
 
-       <p>
+
+
+
+
+
+       {/* <p>
             <a href="http://purecss.io" className="pure-button pure-button-primary">Get Started</a>
-        </p>
+          </p> */}
     </div>
 </div> 
 
@@ -120,11 +149,12 @@ const Home = () => {
     </div>
     </div>
     
-  
-
-
-);
-
-}
+    
+    
+    
+    );
+    
+  } 
+  }
 
 export default Home;

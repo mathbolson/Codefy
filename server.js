@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 // Connect to the Mongo DB
 mongoose.connect(
-  "mongodb+srv://mathbolson:odeiocmb@cluster0.gyhca.mongodb.net/codefy?retryWrites=true&w=majority",
+  "mongodb+srv://codefyLogin:CodefyJS@cluster0.abrzq.mongodb.net/codefy?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -50,11 +50,11 @@ require("./Config/passportConfig")(passport);
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
 // ApiRoutes
-const apiRoute = require("./routes/apiRoute");
-const indexRoute = require("./routes/indexRoute");
+const apiRoute = require("./routes");
+//const indexRoute = require("./routes/indexRoute");
 
-app.use('/', apiRoute);
-app.use('/Profile', indexRoute);
+app.use(apiRoute);
+//app.use('/Profile', indexRoute);
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

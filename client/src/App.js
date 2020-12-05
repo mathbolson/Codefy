@@ -5,7 +5,7 @@ import NavBar from "./Components/NavBar";
 import Wrapper from "./Components/Wrapper";
 import './Styles/Pure.css'
 import Home from "./Pages/Home";
-import Footer from "./Components/Footer";
+//import Footer from "./Components/Footer";
 import NotFoundPage from "./Pages/NotFoundPage";
 import Profile from "./Pages/Profile";
 
