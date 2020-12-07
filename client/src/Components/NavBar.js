@@ -16,7 +16,7 @@ function NavBar() {
             password: registerPassword,
           },
           withCredentials: true,
-          url: "http://localhost:4000/register",
+          url: "/api/register",
         }).then((res) => console.log(res));
       };
 

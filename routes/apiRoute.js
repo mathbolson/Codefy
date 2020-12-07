@@ -10,11 +10,11 @@ const bcrypt = require("bcryptjs");
 router.post("/login", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
-      if (!user) res.send("No User Exists");
+      if (!user) {res.sendStatus(403)}
       else {
         req.logIn(user, (err) => {
           if (err) throw err;
-          res.send("Successfully Authenticated");
+          res.json(req.user);
           console.log(req.user);
         });
       }
@@ -67,7 +67,7 @@ router.post("/login", (req, res, next) => {
       "answer" : answer
     });
     newAnswer.save();
-    res.redirect("http://localhost:3000/profile");
+    res.redirect("/profile");
   });
   
   router.get("/user", (req, res) => {

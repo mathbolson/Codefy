@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+//import { render } from "react-dom";
 import $ from "jquery";
 
 class Profile extends Component {
@@ -40,6 +40,7 @@ class Profile extends Component {
         return ( 
            <div>
            <br></br>
+           <div style={{textAlign: "center"}}><h2>Welcome to Codefy {this.props.location.state.username} </h2></div>
            <h1> Submit Questions  </h1>
            <h3>This is a form so you can add your question and answer!</h3>
           <form id="formAddUser" name="adduser" method="post" action="http://localhost:4000/addQuestion">
