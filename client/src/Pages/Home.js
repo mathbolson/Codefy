@@ -14,12 +14,7 @@ const Home = () => {
   
   const login = () => {
     console.log("Hello");
-    // Axios.post("/api/login", {params:{username: loginUsername,
-    //   password: loginPassword}}).then((res) => {
-    //     console.log(res)
-        //getUser() 
-      //});
-    Axios({
+     Axios({
       method: "POST",
       data: {
         username: loginUsername,
@@ -78,14 +73,11 @@ const Home = () => {
           <div className="pure-control-group">
               <input type="password" id="aligned-password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)} />
           </div>
+      <a className="pure-button pure-button-primary" onClick= {login}>Get Started</a>
+      { redirect === false ? <div className="errorAlert"> <h4>User not found!</h4></div> : null }
         </fieldset>
       </form>
 
-{/* VERIFICAR PQ O BTN LOG IN NAO FUNCIONA QDO COLOCADO DENTRO DO FORM */}
-          <button className="pure-button pure-button-primary" onClick= {login}>Log in</button>
-          
- 
-{ redirect === false ? <div className="errorAlert"> User not found!</div> : null }
 
 
 
@@ -128,20 +120,45 @@ const Home = () => {
  
  
     <div className="ribbon l-box-lrg pure-g">
-          <div className="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-              <img width="300" alt="File Icons" className="pure-img-responsive" src="" />
-          </div>
+          
           <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
-              <h2 className="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+              <h1 className="content-head content-head-ribbon is-center">Work Team</h1>
 
-              <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor.
-              </p>
-              <br></br>
+             <div className="row is-center"> 
+                <div className="card">
+                  <img src="https://media-exp1.licdn.com/dms/image/C5603AQGJSnTjHutMEg/profile-displayphoto-shrink_400_400/0?e=1604534400&v=beta&t=SnGQzYmOdtx5tVIpNCjweMy6TGPObg2lRjOp7BzCZ3k" alt="Diogo Candido" classeName="imgTeam" style={{width: 100}}/>
+                  <div className="container">
+                    <h3><b>Diogo Candido</b></h3> 
+                    <div className="card-action">
+                      <a href="https://www.linkedin.com/in/diogo-candido-da-silva-26061811a/"><img src="../Util/images/linkedin-icon.png" className="social" alt="LinkedIn" /></a>
+                      <a href="https://github.com/diogocandidos"><img src="../Util/images/gitHublogo1.png" className="social" alt="GitHub" /></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card">
+                  <img src="https://media-exp1.licdn.com/dms/image/C5603AQGJSnTjHutMEg/profile-displayphoto-shrink_400_400/0?e=1604534400&v=beta&t=SnGQzYmOdtx5tVIpNCjweMy6TGPObg2lRjOp7BzCZ3k" alt="Matheus Bolson" style={{width: 100}}/>
+                  <div className="container">
+                    <h3><b>Matheus Bolson</b></h3> 
+                    <div className="card-action">
+                      <a href="https://www.linkedin.com/in/matheus-weber-bolson-1388421ab/"><img src="../Util/images/linkedin-icon.png" className="social" alt="LinkedIn" /></a>
+                      <a href="https://github.com/mathbolson"><img src="../Util/images/gitHublogo1.png" className="social" alt="GitHub" /></a>
+                    </div>
+                  </div>
+                </div>
+                
+
+
+
+                
+
+            </div>
+
+
+
+
+            
           </div>
           
       </div>
