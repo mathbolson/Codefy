@@ -17,25 +17,53 @@ function NavBar() {
           },
           withCredentials: true,
           url: "/api/register",
-        }).then((res) => console.log(res));
+        }).then((res) => console.log(res))
+        userCreated();
       };
+      
+      const userCreated = () => {
+        alert("User Created!");
+      }
 
   return (
-
+<div>
     <div className="header">
     <nav className="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-       <a className="pure-menu-heading" href="../Pages/Home.js">LOGO</a>
+       <a className="pure-menu-heading" href="#" >CODEFY</a>
         <ul className="pure-menu-list">
-            <div className="App">
-            <div>
-                <input placeholder="username" onChange={(e) => setRegisterUsername(e.target.value)} />
-                <input placeholder="password" type="password" onChange={(e) => setRegisterPassword(e.target.value)} />
-                <button onClick={register}>Sign up</button>
+            <div className="app">
+            <div className="pure-control-group">
+                <input className=" signUp" type="text" id="aligned-name" placeholder="Username" onChange={(e) => setRegisterUsername(e.target.value)} />
+                <input className=" signUp" placeholder="Password" type="password" onChange={(e) => setRegisterPassword(e.target.value)} />
+                <button className="signBtn pure-button-primary" onClick={register}>Sign Up</button>
             </div>
             </div>
         </ul>
     </nav>
     </div>
+
+
+    
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     );

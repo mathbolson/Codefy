@@ -4,6 +4,7 @@ import "../App.css";
 import Axios from "axios";
 import "../Styles/Pure.css";
 import Footer from "../Components/Footer";
+import NavBar from "../Components/NavBar";
 
 
 const Home = () => {
@@ -38,6 +39,7 @@ const Home = () => {
   };
   
   
+  
   // const getUser = () => {
   //   Axios({
   //     method: "GET",
@@ -57,6 +59,7 @@ const Home = () => {
    
    return (
      <div>
+       <NavBar />
 
     <div className="splash-container">
     <div className="splash">
@@ -77,11 +80,6 @@ const Home = () => {
       { redirect === false ? <div className="errorAlert"> <h4>User not found!</h4></div> : null }
         </fieldset>
       </form>
-
-
-
-
-
 
 
 
@@ -124,6 +122,7 @@ const Home = () => {
           <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
               <h1 className="content-head content-head-ribbon is-center">Work Team</h1>
+              <h3>"The dictionary is the only place that success comes before work." – Vince Lombardi Jr.</h3>
 
              <div className="row is-center"> 
                 <div className="card">
