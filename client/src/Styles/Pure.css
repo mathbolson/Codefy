@@ -10,8 +10,9 @@
  */
 body {
     line-height: 1.7em;
-    color: #7f8c8d;
-    font-size: 13px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 h1,
@@ -66,6 +67,7 @@ label {
     margin-bottom: 1em;
 }
 
+
 /*
  * -- PURE BUTTON STYLES --
  * I want my pure-button elements to look a little different
@@ -78,11 +80,13 @@ label {
 }
 
 a.pure-button-primary {
-    background: white;
-    color: #1f8dd6;
+    background: #1f8dd6;
+    color: white;
     border-radius: 5px;
     font-size: 120%;
 }
+
+
 
 
 /*
@@ -133,7 +137,7 @@ a.pure-button-primary {
 
 .splash-container {
     background-image: URL("https://images.unsplash.com/photo-1535551951406-a19828b0a76b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1046&q=80");
-    background-size: 1500px 600px;
+    background-size: 1500px 700px;
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
@@ -186,9 +190,31 @@ a.pure-button-primary {
     margin-bottom: 1em;
 }
 
+.signUp {
+    border: 2px solid #ddd;
+    border-radius: 0.4em;
+    box-shadow: none;
+    box-shadow: none;
+    margin: 0.3em;
 
+}
 
+.signBtn {
+    background-color: #1f8dd6;
+    color: white;
+    padding: 0.1em 1.1em;
+    border-radius: 0.4em;
+    margin: 0.3em;
+}
 
+.logOutBtn {
+    float: right;
+    background-color: #1f8dd6;
+    color: white;
+    padding: 0.1em 1.1em;
+    border-radius: 0.4em;
+    margin: 0.3em;
+}
 /*
  * -- CONTENT STYLES --
  * This represents the content area (everything below the blue section)
@@ -233,13 +259,14 @@ a.pure-button-primary {
 /* This is the class used for the dark-background areas. */
 .ribbon {
     background-image: URL("https://images.unsplash.com/photo-1483446227769-9137a8af8667?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1187&q=80");
-    background-size: 1500px 900px;
+    background-size: 1500px 700px;
     color: #aaa;
 }
 
 /* This is the class used for the footer */
 .footer {
-    background: #111;
+    background: #2d3e50;
+    font-size: 15px;
     position: fixed;
     bottom: 0;
     width: 100%;

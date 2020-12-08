@@ -40,7 +40,21 @@ class Profile extends Component {
         return ( 
            <div>
            <br></br>
-           <div style={{textAlign: "center"}}><h2>Welcome to Codefy {this.props.location.state.username} </h2></div>
+           
+           <div className="header">
+                <div className="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                    <a className="pure-menu-heading" href="#" >CODEFY</a>
+                    <button className="logOutBtn pure-button-primary" >Log Out</button>
+                </div>
+            </div>
+           
+           <div className="pure-menu-heading" style={{textAlign: "center"}}><h2>Welcome to Codefy {this.props.location.state.username} </h2></div>
+           
+           
+           
+           
+           
+           
            <h1> Submit Questions  </h1>
            <h3>This is a form so you can add your question and answer!</h3>
           <form id="formAddUser" name="adduser" method="post" action="http://localhost:4000/addQuestion">

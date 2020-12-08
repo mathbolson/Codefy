@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavBar from "./Components/NavBar";
+//import NavBar from "./Components/NavBar";
 import Wrapper from "./Components/Wrapper";
 import './Styles/Pure.css'
 import Home from "./Pages/Home";
@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
 
-        <NavBar />
+        {/* <NavBar /> */}
         <Wrapper>
             <Route exact path="/" component={Home} />
             <Route component={NotFoundPage} />
