@@ -64,9 +64,7 @@ const Home = () => {
     <div className="splash-container">
     <div className="splash">
         <p className="splash-head">CODEFY</p>
-          <p className="splash-subhead">
-             <strong>"Hello world!"</strong>
-          </p>
+          <br></br>
 
       <form className="pure-form pure-form-aligned">
         <fieldset>
@@ -74,10 +72,10 @@ const Home = () => {
               <input type="text" id="aligned-name" placeholder="Username" onChange={(e) => setLoginUsername(e.target.value)} />
           </div>
           <div className="pure-control-group">
+      { redirect === false ? <div className="errorAlert"> <p><strong>User not found!</strong></p></div> : null }
               <input type="password" id="aligned-password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)} />
           </div>
-      <a className="pure-button pure-button-primary" onClick= {login}>Get Started</a>
-      { redirect === false ? <div className="errorAlert"> <h4>User not found!</h4></div> : null }
+      <a className="getStartedBtn pure-button-primary" onClick= {login}>Get Started</a><br></br>
         </fieldset>
       </form>
 
@@ -93,6 +91,7 @@ const Home = () => {
     <div className="content">
         <h2 className="content-head is-center">CODEFY</h2>
 
+
         <div className="pure-g">
             <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 
@@ -100,19 +99,12 @@ const Home = () => {
                     <i className="fa fa-rocket"></i>
                     Get Started Quickly
                 </h3>
+        
                 <p>
                     Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
                 </p>
             </div>
-            <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 className="content-subhead">
-                    <i className="fa fa-mobile"></i>
-                    Responsive Layouts
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
+            
             </div>
     </div>
  
