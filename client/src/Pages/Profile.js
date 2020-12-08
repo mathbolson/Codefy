@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 //import { render } from "react-dom";
 import $ from "jquery";
-
+import api from "../Util/api"
 class Profile extends Component {
     componentDidMount() {
+        api.getCurrentUser().then(user => {console.log(user)})
         // $("#btnSubmit").on('click', function() {
         //     console.log("cherries")
         //     $.post("http://localhost:4000/addQuestion",
@@ -36,19 +37,28 @@ class Profile extends Component {
             }); 
         
         });
-    } render () {
+    } 
+    //Diogo
+    handleSubmit= event =>{
+        api.logOut().then (user => {
+            window.location.href="/"
+         })
+    }
+    render () {
         return ( 
            <div>
            <br></br>
-           
+
+         {/* Diogo   */}
            <div className="header">
                 <div className="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-                    <a className="pure-menu-heading" href="#" >CODEFY</a>
-                    <button className="logOutBtn pure-button-primary" >Log Out</button>
+                    <a className="pure-menu-heading" href="" >CODEFY</a>
+                    <button className="logOutBtn pure-button-primary" onClick={this.handleSubmit}>Log Out</button>
                 </div>
             </div>
            
-           <div className="pure-menu-heading" style={{textAlign: "center"}}><h2>Welcome to Codefy {this.props.location.state.username} </h2></div>
+           <div className="pure-menu-heading" style={{textAlign: "center"}}><h2>Welcome to Codefy 
+                      {this.props.location.state.username} </h2></div>
            
            
            
