@@ -9,7 +9,7 @@ function NavBar() {
     //const [registerUsername, setRegisterUsername] = useState("");
     //const [registerPassword, setRegisterPassword] = useState("");
 
-  //const [redirect, setRedirect] = useState(null);
+  const [redirect, setRedirect] = useState(null);
 
   const [data, setData] = useState(null);
   const [registerUsername, setRegisterUsername] = useState("");
@@ -31,12 +31,13 @@ function NavBar() {
       if(res.status === 200) 
       { console.log(res.data)
       setData(res.data)
+      setRedirect(true)
 
       } 
     }).catch(err => {
       //console.log(err.response.status)
       if (err.response.status === 403) {
-      //setRedirect(false)
+      setRedirect(false)
       }
     });
   };
@@ -52,7 +53,7 @@ function NavBar() {
           url: "/api/register",
         }).then((res) => console.log(res))
         //userCreated();
-        window.location.href ="/profile"
+        //window.location.href ="/profile"
         login()
         //userCreated();
       };
@@ -63,6 +64,9 @@ function NavBar() {
     //   const userCreated = () => {
     //     alert("User Created!");
     //   }
+    if(redirect) {
+      return <Redirect  to={{pathname:"/profile", state:{username : data.username}}} />
+    } else {
 
   return (
 <div>
@@ -83,5 +87,7 @@ function NavBar() {
     
     </div>
     );
+};
 }
+
 export default NavBar;
