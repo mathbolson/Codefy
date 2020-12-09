@@ -155,11 +155,6 @@ a.pure-button-primary {
     text-transform: uppercase;
 }
 
-/* This is the main heading that appears on the blue section */
-@media (min-width: 4em)
-.splash-head {
-    font-size: 250%;
-}
 
 .splash-head {
     font-size: 50px;
