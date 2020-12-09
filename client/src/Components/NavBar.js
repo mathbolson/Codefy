@@ -29,7 +29,7 @@ function NavBar() {
 <div>
     <div className="header">
     <nav className="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-       <a className="pure-menu-heading" href="#" >CODEFY</a>
+       <a className="pure-menu-heading" href="/" >CODEFY</a>
         <ul className="pure-menu-list">
             <div className="app">
             <div className="pure-control-group">
