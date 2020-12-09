@@ -5,6 +5,10 @@ import Axios from "axios";
 import "../Styles/Pure.css";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
+import linkedinIcon from "../Util/images/linkedin-icon.png";
+import gitHubIcon from "../Util/images/gitHublogo1.png";
+
+
 
 
 const Home = () => {
@@ -122,19 +126,19 @@ const Home = () => {
                   <div className="container">
                     <h3><b>Diogo Candido</b></h3> 
                     <div className="card-action">
-                      <a href="https://www.linkedin.com/in/diogo-candido-da-silva-26061811a/"><img src="../Util/images/linkedin-icon.png" className="social" alt="LinkedIn" /></a>
-                      <a href="https://github.com/diogocandidos"><img src="../Util/images/gitHublogo1.png" className="social" alt="GitHub" /></a>
+                      <a href="https://www.linkedin.com/in/diogo-candido-da-silva-26061811a/"><img src={linkedinIcon} className="social" alt="LinkedIn" /></a>
+                      <a href="https://github.com/diogocandidos"><img src={gitHubIcon} className="social" alt="GitHub" /></a>
                     </div>
                   </div>
                 </div>
 
                 <div className="card">
-                  <img src="https://media-exp1.licdn.com/dms/image/C5603AQGJSnTjHutMEg/profile-displayphoto-shrink_400_400/0?e=1604534400&v=beta&t=SnGQzYmOdtx5tVIpNCjweMy6TGPObg2lRjOp7BzCZ3k" alt="Matheus Bolson" style={{width: 100}}/>
+                  <img src="https://media-exp1.licdn.com/dms/image/C5603AQGJSnTjHutMEg/profile-displayphoto-shrink_100_100/0/1598205880593?e=1613001600&v=beta&t=AE20GOgZK57RJcczZhlai_SMMCUVAvlYPU0VgSxTeBw" alt="Matheus Bolson" style={{width: 100}}/>
                   <div className="container">
                     <h3><b>Matheus Bolson</b></h3> 
                     <div className="card-action">
-                      <a href="https://www.linkedin.com/in/matheus-weber-bolson-1388421ab/"><img src="../Util/images/linkedin-icon.png" className="social" alt="LinkedIn" /></a>
-                      <a href="https://github.com/mathbolson"><img src="../Util/images/gitHublogo1.png" className="social" alt="GitHub" /></a>
+                      <a href="https://www.linkedin.com/in/matheus-weber-bolson-1388421ab/"><img src={linkedinIcon} className="social" alt="LinkedIn" /></a>
+                      <a href="https://github.com/mathbolson"><img src={gitHubIcon} className="social" alt="GitHub" /></a>
                     </div>
                   </div>
                 </div>
