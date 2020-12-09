@@ -353,13 +353,12 @@ a.pure-button-primary {
     width: 30%;
     height: 400px;
     border-radius: 5px;
-    margin-top: 20px;
-    margin-left: 90px;
-    margin-bottom: 80px;
+    margin: 20px 45px 80px 45px;
+    
   }
   
   .card:hover {
-    box-shadow: 80px 80px 80px 80px rgba(241, 6, 6, 0.2);
+    box-shadow: 40px 40px 40px 40px rgba(241, 6, 6, 0.2);
   }
   
   img {
