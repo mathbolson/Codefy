@@ -40,9 +40,10 @@ router.post("/login", (req, res, next) => {
 
   router.post('/addQuestion', function(req, res) {
   
-    // Get our form values. These rely on the "name" attributes
+    // Get our form values. These rely on the "question" attributes
     var question = req.body.question;
     var answer = req.body.answer;
+    var tag = req.body.tag;
 
     console.log(question)
     console.log(answer)
@@ -64,7 +65,8 @@ router.post("/login", (req, res, next) => {
 
     const newAnswer = new questionsAndAnswers({
       "question" : question,
-      "answer" : answer
+      "answer" : answer,
+      "tag": tag
     });
     newAnswer.save();
     res.redirect("/profile");
@@ -93,6 +95,21 @@ router.post("/login", (req, res, next) => {
       }
     });
   });
+
+  router.put("/updateQuestionsAndAnswers"), (req, res) => {
+    console.error("taggggggggg")
+    var newObject = { 
+      tag: req.body.tag
+   }; 
+
+   answers.update(req.params.id, newObject, function(err){
+    if(err) { res.send(err);}
+    res.json({messaje:'Done'});
+  });
+
+  }
+
+
 
   module.exports = router;
   
