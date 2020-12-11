@@ -69,7 +69,7 @@ router.post("/login", (req, res, next) => {
       "tag": tag
     });
     newAnswer.save();
-    res.redirect("http://localhost:3000/profile");
+    res.redirect("/profile");
   });
   
   router.get("/user", (req, res) => {
@@ -77,7 +77,7 @@ router.post("/login", (req, res, next) => {
   });
 
   //Diogo
-  router.get("/logout", () => {
+  router.get("/logout", (req, res) => {
     req.logout()
     res.send(req.user);
   });

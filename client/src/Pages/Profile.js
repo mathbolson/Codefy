@@ -23,7 +23,7 @@ class Profile extends Component {
         api.getCurrentUser().then(user => {console.log(user)})
 
         $(document).ready(function() {
-            $.getJSON('http://localhost:4000/questionsAndAnswers', function(res) {
+            $.getJSON('/api/questionsAndAnswers', function(res) {
 
                 $('#filterBtn').on('click', function() {
                    // console.log(res)
@@ -48,14 +48,14 @@ class Profile extends Component {
             });
 
             $(document).on('click','.revealAnswer', function(event) {
-                $.getJSON('http://localhost:4000/questionsAndAnswers', function(res) {
+                $.getJSON('/api/questionsAndAnswers', function(res) {
                     let questionNumber = event.target.id.replace("revealAnswer", "");
                     let answer = res[questionNumber].answer;
 
                     if (res[questionNumber].answer === undefined) {
                         answer = "No Answer Yet!";
                     }
-                    $('#' + event.target.id).after('<div>' + answer + '</div>' + "<input id='tagInput' type='text' placeholer='Add new tags' name='tags'></input>" + "<button id='tagBtn' class='btn btn-default' action='http://localhost:4000/questionsAndAnswers' type='submit'> Add tags! </button> " + "<button id='likesBtn' action='http://localhost:4000/questionsAndAnswers' type='submit' class='btn btn-success'> Like </button>" + "<button id='dislikeBtn' action='http://localhost:4000/questionsAndAnswers' type='submit'class='btn btn-danger' > Dislike </button>");
+                    $('#' + event.target.id).after('<div>' + answer + '</div>' + "<input id='tagInput' type='text' placeholer='Add new tags' name='tags'></input>" + "<button id='tagBtn' class='btn btn-default' action='/api/questionsAndAnswers' type='submit'> Add tags! </button> " + "<button id='likesBtn' action='/api/questionsAndAnswers' type='submit' class='btn btn-success'> Like </button>" + "<button id='dislikeBtn' action='/api/questionsAndAnswers' type='submit'class='btn btn-danger' > Dislike </button>");
                 });
             }); 
             $('#filterDateBtn').on('click', function(event) {
@@ -66,8 +66,8 @@ class Profile extends Component {
 
           
     } 
-      //Diogo
-      handleSubmit= event =>{
+    //Diogo
+    handleSubmit= event =>{
         api.logOut().then (user => {
             window.location.href="/"
          })
@@ -109,7 +109,7 @@ class Profile extends Component {
             <h1> Submit Questions  </h1>
             <h5>This is a form so you can add your question and answer and tags so others can get woke!</h5>
 
-             <form id="formAddUser" name="adduser" method="post" action="http://localhost:4000/addQuestion">
+             <form id="formAddUser" name="adduser" method="post" action="/api/addQuestion">
 
             <div class="form-group">
             <label for="questionInp">Write your interview question</label>

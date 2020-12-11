@@ -50,11 +50,11 @@ require("./Config/passportConfig")(passport);
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
 // ApiRoutes
-const apiRoute = require("./routes/apiRoute");
-const indexRoute = require("./routes/indexRoute");
+const apiRoute = require("./routes");
+//const indexRoute = require("./routes/indexRoute");
 
-app.use('/', apiRoute);
-app.use('/Profile', indexRoute);
+app.use(apiRoute);
+//app.use('/Profile', indexRoute);
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
