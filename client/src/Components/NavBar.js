@@ -1,12 +1,46 @@
 import React, { useState } from "react";
-//import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "../Styles/Pure.css"
 import Axios from "axios";
 
 
+
 function NavBar() {
-    const [registerUsername, setRegisterUsername] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
+    //const [registerUsername, setRegisterUsername] = useState("");
+    //const [registerPassword, setRegisterPassword] = useState("");
+
+  const [redirect, setRedirect] = useState(null);
+
+  const [data, setData] = useState(null);
+  const [registerUsername, setRegisterUsername] = useState("");
+ const [registerPassword, setRegisterPassword] = useState("");
+
+  const login = () => {
+    console.log("Hello");
+    console.log(registerUsername, registerPassword)
+     Axios({
+      method: "POST",
+      data: {
+        username: registerUsername,
+        password: registerPassword,
+      },
+      withCredentials: true,
+      url: "/api/login",
+    }).then((res) => {
+      console.log(res.status)
+      if(res.status === 200) 
+      { console.log(res.data)
+      setData(res.data)
+      setRedirect(true)
+
+      } 
+    }).catch(err => {
+      //console.log(err.response.status)
+      if (err.response.status === 403) {
+      setRedirect(false)
+      }
+    });
+  };
 
     const register = () => {
         Axios({
@@ -16,29 +50,44 @@ function NavBar() {
             password: registerPassword,
           },
           withCredentials: true,
-          url: "http://localhost:4000/register",
-        }).then((res) => console.log(res));
+          url: "/api/register",
+        }).then((res) => console.log(res))
+        //userCreated();
+        //window.location.href ="/profile"
+        login()
+        //userCreated();
       };
 
-  return (
+      //const userCreated = () => {
+        //alert("User Created!");
+      //}
+    //   const userCreated = () => {
+    //     alert("User Created!");
+    //   }
+    if(redirect) {
+      return <Redirect  to={{pathname:"/profile", state:{username : data.username}}} />
+    } else {
 
+  return (
+<div>
     <div className="header">
     <nav className="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-       <a className="pure-menu-heading" href="../Pages/Home.js">LOGO</a>
+       <a className="pure-menu-heading" href="/" >CODEFY</a>
         <ul className="pure-menu-list">
-            <div className="App">
-            <div>
-                <input placeholder="username" onChange={(e) => setRegisterUsername(e.target.value)} />
-                <input placeholder="password" type="password" onChange={(e) => setRegisterPassword(e.target.value)} />
-                <button onClick={register}>Sign up</button>
+            <div className="app">
+            <div className="pure-control-group">
+                <input className=" signUp" type="text" id="aligned-name" placeholder="Username" onChange={(e) => setRegisterUsername(e.target.value)} />
+                <input className=" signUp" placeholder="Password" type="password" onChange={(e) => setRegisterPassword(e.target.value)} />
+                <button className="signBtn pure-button-primary" onClick={register}>Sign Up</button>
             </div>
             </div>
         </ul>
     </nav>
     </div>
-
-
+    
+    </div>
     );
+};
 }
 
 export default NavBar;

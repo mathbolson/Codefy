@@ -1,11 +1,11 @@
 import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavBar from "./Components/NavBar";
+//import NavBar from "./Components/NavBar";
 import Wrapper from "./Components/Wrapper";
 import './Styles/Pure.css'
 import Home from "./Pages/Home";
-import Footer from "./Components/Footer";
+//import Footer from "./Components/Footer";
 import NotFoundPage from "./Pages/NotFoundPage";
 import Profile from "./Pages/Profile";
 
@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
 
-        <NavBar />
+        {/* <NavBar /> */}
         <Wrapper>
             <Route exact path="/" component={Home} />
             <Route component={NotFoundPage} />
