@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 // Connect to the Mongo DB
 mongoose.connect(
-  "mongodb+srv://codefyLogin:CodefyJS@cluster0.abrzq.mongodb.net/codefy?retryWrites=true&w=majority",
+  "mongodb+srv://mathbolson:odeiocmb@cluster0.gyhca.mongodb.net/codefy?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

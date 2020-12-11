@@ -1,3 +1,40 @@
 #container {
     text-align: center;
 }
+#profilePic {
+    width: 200px;
+}
+.page-header.page-header-xs {
+    min-height: 60vh !important;
+}
+.profile-content {
+    padding-top: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+#formAddUser {
+    width: 600px;
+    margin: auto;
+    border: 3px solid gray;
+    padding: 10px;
+}
+
+#inputUserEmail {
+    height: 200px;
+}
+
+#addAnswer {
+    height: 200px;
+}
+
+#filterBox {
+    margin: auto;
+}
+#filterMostLikedBtn {
+    margin-left: 20px;
+}
+
+#inputFilterTag {
+    margin-left: 20px;
+}
