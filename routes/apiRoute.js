@@ -96,18 +96,20 @@ router.post("/login", (req, res, next) => {
     });
   });
 
-  router.put("/updateQuestionsAndAnswers"), (req, res) => {
-    console.error("taggggggggg")
-    var newObject = { 
-      tag: req.body.tag
-   }; 
+  // router.put("/updateQuestionsAndAnswers"), (req, res) => {
 
-   answers.update(req.params.id, newObject, function(err){
-    if(err) { res.send(err);}
-    res.json({messaje:'Done'});
-  });
+  //   console.error("helsjdnakjdsnaloooo")
 
-  }
+
+  // //   console.error("taggggggggg")
+  // //   var newObject = { 
+  // //     tag: req.body.tag
+  // //  }; 
+
+  // //  answers.update(req.params.id, newObject, function(err){
+  // //   if(err) { res.send(err);}
+  // //   res.json({messaje:'Done'});
+  // };
 
 
 
