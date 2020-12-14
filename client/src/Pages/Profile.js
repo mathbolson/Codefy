@@ -3,8 +3,9 @@ import { render } from "react-dom";
 import "../Styles/profile.css";
 import $ from "jquery";
 import ProfilePageHeader from "../Components/ProfilePageHeader";
-import logo from "../Util/images/joe-gardner-2.jpg";
-import api from "../Util/api" //Diogo
+import logo from "../Util/images/profilepicd.png";
+import api from "../Util/api" ;//Diogo
+import Footer from "../Components/Footer";
 // import Button from "@material-ui/core/Button";
 
 class Profile extends Component {
@@ -43,7 +44,7 @@ class Profile extends Component {
 
                 //console.log(res);
                 for (let i = 0; i < res.length; i++) {
-                    $("#questionList").append('<div id="fullQuestionAnswer' + i +'"><div class="question" id="question' + i + '">' + res[i].question + '</div> <div class="tag" id="tag"' + i + '>Tag: ' + res[i].tag + '<button class="revealAnswer" id="revealAnswer' + i + '">Get Answer</button></div>');
+                    $("#questionList").append('<div class="fullQuestions" id="fullQuestionAnswer' + i +'"><div className="question" id="question' + i + '">Question: ' + res[i].question + '<div class="tag" id="tag"' + i + '>Tag: ' + res[i].tag + '</div><button class="revealAnswer" id="revealAnswer' + i + '">Get Answer</button></div>');
                 };
             });
 
@@ -55,7 +56,7 @@ class Profile extends Component {
                     if (res[questionNumber].answer === undefined) {
                         answer = "No Answer Yet!";
                     }
-                    $('#' + event.target.id).after('<div>' + answer + '</div>' + "<input id='tagInput' type='text' placeholer='Add new tags' name='tags'></input>" + "<button id='tagBtn' class='btn btn-default' action='/api/questionsAndAnswers' type='submit'> Add tags! </button> " + "<button id='likesBtn' action='/api/questionsAndAnswers' type='submit' class='btn btn-success'> Like </button>" + "<button id='dislikeBtn' action='/api/questionsAndAnswers' type='submit'class='btn btn-danger' > Dislike </button>");
+                    $('#' + event.target.id).after('<pre class="answerReveal">' + answer + '</pre>' + "<input id='tagInput' type='text' placeholder='Add new tags' name='tags'></input>" + "<form action='/api/updateQuestionsAndAnswers'><button id='tagBtn' class='btn btn-default tagBtn' type='submit'> Add tags! </button></form>" + "<button id='likesBtn' action='/api/questionsAndAnswers' type='submit' class='btn btn-success'> Like </button>");
                 });
             }); 
             $('#filterDateBtn').on('click', function(event) {
@@ -87,17 +88,17 @@ class Profile extends Component {
             </div>
             
            <div id="container">
-           <ProfilePageHeader />
+           
            <div className="section profile-content">
            <div className="pure-menu-heading" style={{textAlign: "center"}}><h2>Welcome {""} 
            {this.props.location.state ? this.props.location.state.username : ""} </h2></div>
            <div className="owner">
             <div className="avatar">
-            <img src={logo} class="rounded-circle" id="profilePic" alt="Cinque Terre"/>
+            <img src={logo} className="rounded-circle" id="profilePic" alt="Cinque Terre"/>
             </div>
             <div className="name">
               <h4 className="title">
-                Jane Faker <br />
+                Diogo Candido <br />
               </h4>
               <h6 className="description">Web Developer</h6>
             </div>
@@ -111,21 +112,21 @@ class Profile extends Component {
 
              <form id="formAddUser" name="adduser" method="post" action="/api/addQuestion">
 
-            <div class="form-group">
+            <div className="form-group">
             <label for="questionInp">Write your interview question</label>
-            <input id="inputUserEmail" type="text" class="form-control" placeholder="Insert Coding Question" name="question" />
+            <input id="inputUserEmail" type="text" className="form-control" placeholder="Insert Coding Question" name="question" />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
              <label for="answerInp">This is YOUR answer</label>
-             <input id="addAnswer" type="text" class="form-control" placeholder="Add Answer" name="answer"/>
+             <input id="addAnswer" type="text" className="form-control" placeholder="Add Answer" name="answer"/>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
              <label for="tagInp">Tag your question</label>
-             <input id="inputUserTag" type="text" class="form-control" placeholder="Insert Tags" name="tag"/>
+             <input id="inputUserTag" type="text" className="form-control" placeholder="Insert Tags" name="tag"/>
             </div>
-            <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+            <button id="btnSubmit" type="submit" className="btn btn-primary">Submit</button>
             </form>
             </div>
 
@@ -134,10 +135,10 @@ class Profile extends Component {
             <h1>Filter questions by</h1>
             <h5>Look for questions based on Date(most recent added), Most Liked and look up by Tags</h5>
             <div id="filterBox">
-            <button id="filterDateBtn" type="submit" class="btn btn-default">Most Recent</button>
-            <button id="filterMostLikedBtn" type="submit" class="btn btn-default">Most Liked</button>
+            <button id="filterDateBtn" type="submit" className="btn btn-default">Most Recent</button>
+            <button id="filterMostLikedBtn" type="submit" className="btn btn-default">Most Liked</button>
             <input id="inputFilterTag" type="text" placeholder="Insert Tag" name="tagFilter" />
-            <button id="filterBtn" type="submit" class="btn btn-default">Search</button>
+            <button id="filterBtn" type="submit" className="btn btn-default">Search</button>
             </div>
 
             <br></br>
@@ -146,10 +147,12 @@ class Profile extends Component {
             <h1>Question List</h1>
             </div>
            
-
-
+            
+            
             </div>
+            
            </div>
+           <Footer />
            </div>
            
         );

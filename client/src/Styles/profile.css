@@ -1,5 +1,10 @@
+
 #container {
     text-align: center;
+    margin: auto;
+  width: 70%;
+  background-color: white;
+  
 }
 #profilePic {
     width: 200px;
@@ -18,18 +23,20 @@
     margin: auto;
     border: 3px solid gray;
     padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #inputUserEmail {
-    height: 200px;
+    height: 150px;
 }
 
 #addAnswer {
-    height: 200px;
+    height: 150px;
 }
 
 #filterBox {
     margin: auto;
+    
 }
 #filterMostLikedBtn {
     margin-left: 20px;
@@ -37,4 +44,90 @@
 
 #inputFilterTag {
     margin-left: 20px;
+}
+
+.fullQuestions {
+    border: 3px solid gray;
+    padding: 30px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    text-align: left;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+   
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+      cursor: pointer;
+      transition: 0.4s;
+    padding-bottom: 70px;
+}
+.fullQuestions:hover {
+    transform: scale(0.97, 0.97);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.question {
+    text-align: center;
+}
+
+
+.answerReveal {
+    text-align: center;
+}
+
+.revealAnswer {
+    display: inline-block;
+	color: white;
+	background-color: #4f989c;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+    border-bottom-width: 3px;
+    margin-left: 13px;  
+}
+
+/* #root{
+background-image: url("../Util/images/webb-dark.png");
+}
+ */
+#everythingDiv{
+    background-image: url("../Util/images/webb-dark.png");
+    height: 100%;
+}
+
+#tagInput {
+    display: inline;
+    float: left;
+}
+#tagBtn {
+    display: inline;
+    float: left;
+}
+#likesBtn {
+    display: inline;
+    float: left;
+}
+
+.footer {  position: relative;
+    margin-top: -60x;
+    /* negative value of footer height */
+    height: 60px;
+    clear: both;
+}
+
+footer {  position: relative;
+    margin-top: -60px;
+    /* negative value of footer height */
+    height: 60px;
+    clear: both;
+}
+
+#questionList {
+    margin-bottom: 30%;
 }
