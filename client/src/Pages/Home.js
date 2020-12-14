@@ -63,7 +63,7 @@ const Home = () => {
                     { redirect === false ? <div className="errorAlert"> <p><strong>User not found!</strong></p></div> : null }
                     <input type="password" id="aligned-password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)} />
                   </div>
-                  <button className="getStartedBtn pure-button-primary" onClick={login}>Log in</button><br></br>
+                  <button className="getStartedBtn pure-button-primary" onClick={login}>Login</button><br></br>
                 </fieldset>
             </form>
 
@@ -78,13 +78,11 @@ const Home = () => {
             <div className="pure-g">
               <div className="sm-box pure-u-sm-1">
 
-                  <h3 className="content-subhead">
-                      <i className="fa fa-rocket"></i>
-                      Get Started Quickly
+                  <h3>
+                    Welcome to Codefy, a preparatory application that helps you to boost your knowledge with the most important Javascript questions that companies usually ask during job interviews and suggested answers.  
                   </h3>
           
                   <p>
-                      Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque 
                   </p>
               </div>
               
