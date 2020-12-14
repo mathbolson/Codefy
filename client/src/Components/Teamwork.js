@@ -13,7 +13,7 @@ function Teamwork() {
           
             <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
               <h1 className="content-head content-head-ribbon is-center">Teamwork</h1>
-              <h3>"The dictionary is the only place that success comes before work." – Vince Lombardi Jr.</h3>
+              <h3 className="quote">"The dictionary is the only place that success comes before work." – Vince Lombardi Jr.</h3>
 
                 <div className="row is-center"> 
                     <div className="card">

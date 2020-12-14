@@ -63,7 +63,7 @@ const Home = () => {
                     { redirect === false ? <div className="errorAlert"> <p><strong>User not found!</strong></p></div> : null }
                     <input type="password" id="aligned-password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)} />
                   </div>
-                  <button className="getStartedBtn pure-button-primary" onClick={login}>Log in</button><br></br>
+                  <button className="getStartedBtn pure-button-primary" onClick={login}>Login</button><br></br>
                 </fieldset>
             </form>
 
