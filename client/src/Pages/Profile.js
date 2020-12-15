@@ -162,12 +162,16 @@ class Profile extends Component {
 
             <div className="form-group">
             <label for="questionInp">Write your interview question</label>
-            <input id="inputUserEmail" type="text" className="form-control" placeholder="Insert Coding Question" name="question" />
+            <pre>
+                <code>
+            <textarea id="inputUserEmail" type="text" className="form-control" placeholder="Insert Coding Question" name="question" />
+            </code>
+            </pre>
             </div>
 
             <div className="form-group">
              <label for="answerInp">This is YOUR answer</label>
-             <input id="addAnswer" type="text" className="form-control" placeholder="Add Answer" name="answer"/>
+             <textarea id="addAnswer" type="text" className="form-control" placeholder="Add Answer" name="answer"/>
             </div>
 
             <div className="form-group">

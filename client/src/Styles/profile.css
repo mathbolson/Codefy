@@ -1,4 +1,9 @@
-
+#inputUserEmail{
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
+}
 #container {
     text-align: center;
     margin: auto;
@@ -73,7 +78,7 @@
 
 
 .answerReveal {
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
     border: solid 3px lightblue;
     margin-top: 20px;
