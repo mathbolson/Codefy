@@ -17,7 +17,6 @@ function App() {
         {/* <NavBar /> */}
         <Wrapper>
             <Route exact path="/" component={Home} />
-            <Route component={NotFoundPage} />
             <Route exact path="/profile" component={Profile} />
         </Wrapper>
         {/* <Footer /> */}

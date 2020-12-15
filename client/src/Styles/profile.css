@@ -4,7 +4,7 @@
     margin: auto;
   width: 70%;
   background-color: white;
-  
+  margin-top: 5%;
 }
 #profilePic {
     width: 200px;
@@ -74,6 +74,11 @@
 
 .answerReveal {
     text-align: center;
+    margin-bottom: 30px;
+    border: solid 3px lightblue;
+    margin-top: 20px;
+    padding: 10px;
+    
 }
 
 .revealAnswer {
@@ -89,8 +94,24 @@
 	-webkit-border-radius: 5px;
 	border: 1px solid rgba(0,0,0,0.3);
     border-bottom-width: 3px;
-    margin-left: 13px;  
+    margin-left: 40%;  
+    margin-bottom: 1%;
+    margin-top: 2%;
 }
+#btnSubmit {
+    color: white;
+	background-color: #4f989c;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+    border-bottom-width: 3px;
+}
+
 
 /* #root{
 background-image: url("../Util/images/webb-dark.png");
@@ -104,16 +125,36 @@ background-image: url("../Util/images/webb-dark.png");
 #tagInput {
     display: inline;
     float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    
 }
 #tagBtn {
     display: inline;
     float: left;
+    margin-right: 15px;
+    
 }
 #likesBtn {
     display: inline;
-    float: left;
-}
+    float: right;
+    color: white;
+	background-color: #4f989c;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+    border-bottom-width: 3px;
 
+}
+#likesBtn:focus{
+    background: green;
+
+}
 .footer {  position: relative;
     margin-top: -60x;
     /* negative value of footer height */
@@ -131,4 +172,19 @@ footer {  position: relative;
 #questionList {
     margin-bottom: 30%;
     padding-bottom: 5%;
+}
+
+h2{
+    font-size: 70px;
+    font-weight: 100;
+}
+h1{
+    font-size: 40px;
+    font-weight: 300;
+}
+h5{
+    font-weight: 300;
+}
+#submitBox {
+    margin-bottom: 5%;
 }
