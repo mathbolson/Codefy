@@ -114,6 +114,10 @@ background-image: url("../Util/images/webb-dark.png");
     float: left;
 }
 
+.btn {
+    margin-right: 10px;
+}
+
 .footer {  position: relative;
     margin-top: -60x;
     /* negative value of footer height */

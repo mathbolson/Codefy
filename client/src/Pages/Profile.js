@@ -41,10 +41,11 @@ class Profile extends Component {
                     }
                 });
 
+                $("#questionList").empty();
 
                 //console.log(res);
                 for (let i = 0; i < res.length; i++) {
-                    $("#questionList").append('<div class="fullQuestions" id="fullQuestionAnswer' + i +'"><div className="question" id="question' + i + '">Question: ' + res[i].question + '<div class="tag" id="tag"' + i + '>Tag: ' + res[i].tag + '</div><button class="revealAnswer" id="revealAnswer' + i + '">Get Answer</button></div>');
+                    $("#questionList").append('<div class="fullQuestions" id="fullQuestionAnswer' + i +'"><div className="question" id="question' + i + '">Question: ' + res[i].question + '<div class="tag" id="tag"' + i + '>Tag: ' + res[i].tag + '</div><button class="revealAnswer" data-id="'+i+'" id="revealAnswer' + i + '">Get Answer</button><div id="results'+i+'"></div></div>');
                 };
             });
 
@@ -52,11 +53,11 @@ class Profile extends Component {
                 $.getJSON('/api/questionsAndAnswers', function(res) {
                     let questionNumber = event.target.id.replace("revealAnswer", "");
                     let answer = res[questionNumber].answer;
+                 let id = $(this).attr("data-id")
+                 console.log("id", questionNumber)
 
-                    if (res[questionNumber].answer === undefined) {
-                        answer = "No Answer Yet!";
-                    }
-                    $('#' + event.target.id).after('<pre class="answerReveal">' + answer + '</pre>' + "<input id='tagInput' type='text' placeholder='Add new tags' name='tags'></input>" + "<form action='/api/updateQuestionsAndAnswers'><button id='tagBtn' class='btn btn-default tagBtn' type='submit'> Add tags! </button></form>" + "<button id='likesBtn' action='/api/questionsAndAnswers' type='submit' class='btn btn-success'> Like </button>");
+                        $('#results'+ questionNumber).html('<pre class="answerReveal">' + answer + '</pre>' + "<input id='tagInput' type='text' placeholder='Add new tags' name='tags'></input>" + "<form action='/api/updateQuestionsAndAnswers'><button id='tagBtn' class='btn btn-default tagBtn' type='submit'> Add tags! </button></form>" + "<button id='likesBtn' action='/api/questionsAndAnswers' type='submit' class='btn btn-success'> Like </button>");
+                    
                 });
             }); 
             $('#filterDateBtn').on('click', function(event) {
