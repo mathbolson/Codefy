@@ -49,20 +49,12 @@ class Profile extends Component {
                 };
             });
 
+            let container = $("#container");
+            let divList = document.getElementsByClassName("fullQuestions");
+            console.log(divList)
             $(document).on('click','#filterMostLikedBtn', function(event) {
-             //   console.log("filterMostLikedBtn")
-                //$("#questionList").html("<p>hi</p>")
-              //  console.log($("#fullQuestionAnswer0").html());
-                //let ji = $("#fullQuestionAnswer2").wrapAll('<div>').parent().html(); 
-                //$("#questionList").html(ji)
-                var x = document.getElementsByClassName("fullQuestions");
-                console.log(x);
-                for(let i = 0; i < x.length; i++) {
-                    let randomNumber = Math.floor(Math.random() * x.length);
-                    console.log("randomNumber", randomNumber);
-                    let ji = $("#fullQuestionAnswer" + randomNumber).wrapAll('<div>').parent().html(); 
-                    $("#questionList").append(ji)  
-                }
+                console.log(divList.length)
+
             });
 
             $(document).on('click','.tagBtn', function(event) {
@@ -91,8 +83,10 @@ class Profile extends Component {
                     data: {"question": question, "tag": oldTag + ', ' + newTag},
                     success: function (data) {
                         console.log(data);
+                        
                       }
                 })
+                window.location.href = "/profile";
             });
 
             $(document).on('click','.revealAnswer', function(event) {
