@@ -6,14 +6,10 @@ import Axios from "axios";
 
 
 function NavBar() {
-    //const [registerUsername, setRegisterUsername] = useState("");
-    //const [registerPassword, setRegisterPassword] = useState("");
-
   const [redirect, setRedirect] = useState(null);
-
   const [data, setData] = useState(null);
   const [registerUsername, setRegisterUsername] = useState("");
- const [registerPassword, setRegisterPassword] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
 
   const login = () => {
     console.log("Hello");
@@ -52,18 +48,10 @@ function NavBar() {
           withCredentials: true,
           url: "/api/register",
         }).then((res) => console.log(res))
-        //userCreated();
-        //window.location.href ="/profile"
-        login()
-        //userCreated();
+          login()
       };
 
-      //const userCreated = () => {
-        //alert("User Created!");
-      //}
-    //   const userCreated = () => {
-    //     alert("User Created!");
-    //   }
+      
     if(redirect) {
       return <Redirect  to={{pathname:"/profile", state:{username : data.username}}} />
     } else {

@@ -1,9 +1,7 @@
 import React from "react";
 import Background from '../Util/images/backgroundimage1.jpeg';
 
-// reactstrap components
 
-// core components
 
 function ProfilePageHeader() {
     let pageHeader = React.createRef();
