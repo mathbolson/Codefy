@@ -48,20 +48,6 @@ router.post("/login", (req, res, next) => {
     console.log(question)
     console.log(answer)
   
-    // // Submit to the DB
-    // questionsAndAnswers.insert({
-    //     "question" : question,
-    //     "answer" : answer
-    // }, function (err, doc) {
-    //     if (err) {
-    //         // If it failed, return error
-    //         res.send("There was a problem adding the information to the database.");
-    //     }
-    //     else {
-    //         // And forward to success page
-    //         //res.redirect("/");
-    //     }
-    // });
 
     const newAnswer = new questionsAndAnswers({
       "question" : question,
@@ -106,13 +92,7 @@ router.post("/login", (req, res, next) => {
       console.log(document);
     });
 
-    // questionsAndAnswers.find( {}, {}, function(e, docs) {
-    //   if (e) {
-    //     console.log(e);
-    //   } else {
-    //     res.json(docs);
-    //   }
-    // });
+
   });
 
   router.put("/updateQuestionsAndAnswers", (req, res) => {

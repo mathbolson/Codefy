@@ -59,7 +59,7 @@
     margin-bottom: 50px;
     margin-top: 30px;
     text-align: left;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
    
     box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
       cursor: pointer;
@@ -118,10 +118,7 @@
 }
 
 
-/* #root{
-background-image: url("../Util/images/webb-dark.png");
-}
- */
+
 #everythingDiv{
     background-image: url("../Util/images/webb-dark.png");
     height: 100%;
@@ -158,13 +155,8 @@ background-image: url("../Util/images/webb-dark.png");
 }
 #likesBtn:focus{
     background: green;
+
 }
-
-.btn {
-    margin-right: 10px;
-}
-
-
 .footer {  position: relative;
     margin-top: -60x;
     /* negative value of footer height */
