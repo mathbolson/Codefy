@@ -24,20 +24,21 @@ class Profile extends Component {
         api.getCurrentUser().then(user => {console.log(user)})
 
         $(document).ready(function() {
+
+
             $.getJSON('/api/questionsAndAnswers', function(res) {
 
                 $('#filterBtn').on('click', function() {
                    // console.log(res)
                     let tagInput = $("#inputFilterTag").val();
                     console.log(tagInput);
+                    console.log(res);
                     for (let i = 0; i < res.length; i++) {
-                        if (res[i].tag) {
-                            console.log(res[i].tag);
-                            if (res[i].tag !== tagInput) {
-                             //  console.log(res[i]);         	
-                                $( "#fullQuestionAnswer" + i ).remove();
-                            }
-                        };
+                        console.log(res[i].tag);
+                        if (false === res[i].tag.includes(tagInput)) {
+                            //  console.log(res[i]);   
+                            $( "#fullQuestionAnswer" + i ).remove();
+                        }
                     }
                 });
 
@@ -49,15 +50,59 @@ class Profile extends Component {
                 };
             });
 
+            let container = $("#container");
+            let divList = document.getElementsByClassName("fullQuestions");
+            console.log(divList)
+            $(document).on('click','#filterMostLikedBtn', function(event) {
+                console.log(divList.length)
+
+            });
+
+            $(document).on('click','.tagBtn', function(event) {
+                // $.getJSON('/api/getSpecificQuestion', function(res) {
+                //     console.log(res);
+                // });
+
+                //console.log(event.target.parentElement.firstChild.data)
+                let question = event.target.parentElement.firstChild.data.replace("Question: ", "");
+                //console.log(question);
+
+                //console.log(event.target.parentElement.id)
+                let questionNumber = event.target.parentElement.id.replace("question", "");
+                console.log(questionNumber)
+
+                let newTag = $("#tagInput" + questionNumber).val();
+                console.log(newTag);
+
+                let oldTag = event.target.parentElement.firstElementChild.innerHTML.replace("Tag: ", "");
+
+                // console.log(newTag)
+                $.ajax({
+                    url: "/api/updateQuestionsAndAnswers",
+                    method: 'PUT',
+                    dataType: 'json',
+                    data: {"question": question, "tag": oldTag + ', ' + newTag},
+                    success: function (data) {
+                        console.log(data);
+                        
+                      }
+                })
+                window.location.href = "/profile";
+            });
+
             $(document).on('click','.revealAnswer', function(event) {
+
                 $.getJSON('/api/questionsAndAnswers', function(res) {
                     let questionNumber = event.target.id.replace("revealAnswer", "");
                     let answer = res[questionNumber].answer;
                  let id = $(this).attr("data-id")
                  console.log("id", questionNumber)
 
-                        $('#results'+ questionNumber).html('<pre class="answerReveal">' + answer + '</pre>' + "<input id='tagInput' type='text' placeholder='Add new tags' name='tags'></input>" + "<form action='/api/updateQuestionsAndAnswers'><button id='tagBtn' class='btn btn-default tagBtn' type='submit'> Add tags! </button></form>" + "<button id='likesBtn' action='/api/questionsAndAnswers' type='submit' class='btn btn-success'> Like </button>");
-                    
+                    if (res[questionNumber].answer === undefined) {
+                        answer = "No Answer Yet!";
+                    }
+                    $('#' + event.target.id).after('<pre class="answerReveal">' + answer + '</pre>' + "<input id='tagInput" + questionNumber +  "'type='text' placeholder='Add new tags' name='tags'></input><button id='tagBtn' class='btn btn-default tagBtn' type='submit'> Add tags! </button><button id='likesBtn' action='/api/questionsAndAnswers' type='submit' class='btn btn-success'><span class='glyphicon glyphicon-thumbs-up'></span> Like <i class='fa fa-thumbs-o-up'></i></button>");
+
                 });
             }); 
             $('#filterDateBtn').on('click', function(event) {
@@ -115,12 +160,16 @@ class Profile extends Component {
 
             <div className="form-group">
             <label for="questionInp">Write your interview question</label>
-            <input id="inputUserEmail" type="text" className="form-control" placeholder="Insert Coding Question" name="question" />
+            <pre>
+                <code>
+            <textarea id="inputUserEmail" type="text" className="form-control" placeholder="Insert Coding Question" name="question" />
+            </code>
+            </pre>
             </div>
 
             <div className="form-group">
              <label for="answerInp">This is YOUR answer</label>
-             <input id="addAnswer" type="text" className="form-control" placeholder="Add Answer" name="answer"/>
+             <textarea id="addAnswer" type="text" className="form-control" placeholder="Add Answer" name="answer"/>
             </div>
 
             <div className="form-group">

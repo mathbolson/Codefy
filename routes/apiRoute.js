@@ -96,22 +96,34 @@ router.post("/login", (req, res, next) => {
     });
   });
 
-  // router.put("/updateQuestionsAndAnswers"), (req, res) => {
+  router.get("/getSpecificQuestion", (req, res) => {
+   
+    // questionsAndAnswers.findOne(
+    //   { question: "Make a forLoop of anything" }
+    // )
 
-  //   console.error("helsjdnakjdsnaloooo")
+    questionsAndAnswers.findOne({question: "Make a forLoop of anything"}, function(err, document) {
+      console.log(document);
+    });
 
+    // questionsAndAnswers.find( {}, {}, function(e, docs) {
+    //   if (e) {
+    //     console.log(e);
+    //   } else {
+    //     res.json(docs);
+    //   }
+    // });
+  });
 
-  // //   console.error("taggggggggg")
-  // //   var newObject = { 
-  // //     tag: req.body.tag
-  // //  }; 
+  router.put("/updateQuestionsAndAnswers", (req, res) => {
 
-  // //  answers.update(req.params.id, newObject, function(err){
-  // //   if(err) { res.send(err);}
-  // //   res.json({messaje:'Done'});
-  // };
+    var myquery = {"question": req.body.question}
+    var newvalues = { $set: {tag: req.body.tag } };
+    questionsAndAnswers.updateOne(myquery, newvalues, function(err, res) {
+      if (err) throw err;
+      console.log("1 document updated");
+    });
 
-
+  });
 
   module.exports = router;
-  
