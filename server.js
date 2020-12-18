@@ -7,12 +7,12 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
-
+// const dotenv = require("dotenv");
 
 
 const PORT = process.env.PORT || 4000;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
-// Connect to the Mongo DB
+// 
 mongoose.connect(
   "mongodb+srv://mathbolson:odeiocmb@cluster0.gyhca.mongodb.net/codefy?retryWrites=true&w=majority",
   {
@@ -24,6 +24,10 @@ mongoose.connect(
   }
 );
 
+// mongoose.connect(`mongodb://${process.env.DB_NAME}:${process.env.DB_PASS}@ds241658.mlab.com:41658/codefy`,\
+
+// dotenv.config()
+// const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@coding-blog-t0xf0.mongodb.net/<codefy>`
 
 
 // Middleware

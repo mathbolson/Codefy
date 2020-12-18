@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import "../Styles/profile.css";
 import $ from "jquery";
-import ProfilePageHeader from "../Components/ProfilePageHeader";
 import logo from "../Util/images/profilepicd.png";
 import api from "../Util/api" ;//Diogo
 import Footer from "../Components/Footer";
