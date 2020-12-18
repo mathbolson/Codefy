@@ -143,9 +143,9 @@ class Profile extends Component {
             </div>
             <div className="name">
               <h4 className="title">
-                Diogo Candido <br />
+                CODEFY <br />
               </h4>
-              <h6 className="description">Web Developer</h6>
+              <h6 className="description">This is our community to find our way to success in our careers.</h6>
             </div>
           </div>
 
