@@ -8,7 +8,6 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
 const dotenv = require('dotenv').config();
-const path = require('path')
 
 
 const PORT = process.env.PORT || 4000;
@@ -51,28 +50,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./Config/passportConfig")(passport);
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  //
-  app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
-  })
-}
-//build mode
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/public/index.html'));
-})
-
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
 // ApiRoutes
 const apiRoute = require("./routes");
-//const indexRoute = require("./routes/indexRoute");
+
 
 app.use(apiRoute);
-//app.use('/Profile', indexRoute);
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
